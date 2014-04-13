@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="messageResource"></constant>
+	<constant name="struts.action.extension" value="ajax,action,," />
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.multipart.maxSize" value="900000000" />
+	<constant name="struts.ui.templateDir" value="template" />
+	<constant name="struts.devMode" value="true"></constant>
+
+	<include file="struts-jquery.xml"></include>
+
+	<package name="system" extends="struts-default,json-default" >
+		<interceptors>
+			<!--
+				interceptor name="exception"
+				class="com.opensymphony.xwork.interceptor.ExceptionMapping.Interceptor"
+				/
+			-->
+			<interceptor-stack name="systemStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="params" />
+				<!--  interceptor-ref name="exception" /-->
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="login">/commonPage/timeouterror.jsp
+			</result>
+			<result name="fail">/commonPage/error.jsp
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="" result="fail" />
+		</global-exception-mappings>
+	</package>
+      	
+</struts>
+

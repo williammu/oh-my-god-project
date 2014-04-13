@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="jquery" extends="struts-default,json-default">
+		<action name="forwardCaseBrowseAction" class="com.aliyun.mpp.action.CaseBrowseAction" method="forwardCaseBrowse">
+			<result name="success">/jsp/case_manage/case_browse.jsp</result>
+		</action>
+		
+		<action name="forwardCaseStatsBrowseAction" class="com.aliyun.mpp.action.CaseBrowseAction" method="forwardCaseStatsBrowse">
+			<result name="success">/jsp/case_manage/case_browse.jsp</result>
+		</action>
+		
+		<action name="forwardSelectedCaseBrowseAction" class="com.aliyun.mpp.action.CaseBrowseAction" method="forwardSelectedCaseBrowse">
+			<result name="success">/jsp/case_manage/case_browse.jsp</result>
+		</action>
+		
+		<action name="forwardHistoryCaseBrowseAction" class="com.aliyun.mpp.action.CaseBrowseAction" method="forwardHistoryCaseBrowseAction">
+			<result name="success">/jsp/case_manage/case_browse.jsp</result>
+		</action>	
+		
+		<action name="case-browse-action" class="com.aliyun.mpp.action.CaseBrowseAction"
+			method="fillCaseStatsListByGroupID">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+		
+		<action name="case-select-browse-action" class="com.aliyun.mpp.action.CaseBrowseAction"
+			method="fillSelectCaseStatsList">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+		
+		<action name="case-stats-browse-action" class="com.aliyun.mpp.action.CaseBrowseAction"
+			method="fillCaseStatsListByGroupIDAndQueryType">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+		
+		<action name="edit-oper-case-action" class="com.aliyun.mpp.action.CaseBrowseAction" method="editCaseBrowse">
+			<result name="success" type="json">
+				<param name="root">gridModel</param> 
+			</result>
+		</action>
+		
+		<action name="forwardModuleBrowseAction" class="com.aliyun.mpp.action.ModuleBrowseAction" method="forwardModuleBrowse">
+			<result name="success">/jsp/module_manage/module_browse.jsp</result>
+		</action>
+		<action name="module-browse-action" class="com.aliyun.mpp.action.ModuleBrowseAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+		
+		
+		<!-- action name="forwardCaseStatsAction" class="com.aliyun.mpp.action.CaseStatsClassBrowseAction" method="forwardCaseClassStats">
+			<result name="success">/jsp/case_manage/case_stats_browse.jsp</result>
+		</action>
+		
+		<action name="case-class-stat-browse-action" class="com.aliyun.mpp.action.CaseStatsClassBrowseAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+		 -->
+		 
+		<action name="caseStatsAction" class="com.aliyun.mpp.action.CaseStatsClassBrowseAction" method="getCaseClassStats">
+			<result name="success">/jsp/case_manage/case_statistics.jsp</result>
+		</action>
+		 
+		
+		<action name="forwardProjectCaseBrowseAction" class="com.aliyun.mpp.action.ProjectCaseBrowseAction" method="forwardProjectCaseBrowse">
+			<result name="success">/jsp/project_manage/project_caselist.jsp</result>
+		</action>
+		
+		<action name="project-case-browse-action" class="com.aliyun.mpp.action.ProjectCaseBrowseAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+		
+		
+		
+		
+		<action name="forwardModuleIndexAction" class="com.aliyun.mpp.action.ModuleIndexBrowseAction" method="forwardModuleIndexBrowse">
+			<result name="success">/jsp/module_manage/module_index_browse.jsp</result>
+		</action>
+		<action name="index-browse-action" class="com.aliyun.mpp.action.ModuleIndexBrowseAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+		<action name="forwardModulePlotAction" class="com.aliyun.mpp.action.ModulePlotBrowseAction" method="forwardModulePlotBrowse">
+			<result name="success">/jsp/module_manage/module_plot_browse.jsp</result>
+		</action>
+		<action name="plot-browse-action" class="com.aliyun.mpp.action.ModulePlotBrowseAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="editIndexFieldPackage" extends="struts-default,json-default">
+	    <action name="fEditIndexFieldAction" class="com.aliyun.mpp.action.IndexFieldEditBrowseAction" method="forwardEditIndexFieldBrowse">
+			<result name="success">/jsp/module_manage/index_field_edit_browse.jsp</result>
+		</action>
+	
+		<action name="indexfield-edit-browse-action" class="com.aliyun.mpp.action.IndexFieldEditBrowseAction">
+			<result name="success" type="json">
+				<param name="root">editFieldGridModel</param> 
+			</result>
+		</action>
+		
+		<action name="edit-indexfield-action" class="com.aliyun.mpp.action.IndexFieldEditBrowseAction" method="editEditIndexFieldBrowse">
+			<result name="success" type="json">
+				<param name="root">editFieldGridModel</param> 
+			</result>
+		</action>
+	</package>
+	
+	<package name="caseExecutePackage" extends="struts-default,json-default">
+	    <action name="forwardCaseExecuteAction" class="com.aliyun.mpp.action.CaseExecuteBrowseAction" method="forwardCaseExecuteBrowse">
+			<result name="success">/jsp/case_execute/case_execute_browse.jsp</result>
+		</action>
+		
+		<action name="case-execute-browse-action" class="com.aliyun.mpp.action.CaseExecuteBrowseAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">session,.+Service</param>
+			</result>
+		</action>
+	    
+		<action name="queryAllProjects" class="com.aliyun.mpp.action.ProjectAction" method="queryAllProjects">
+			<result type="json">
+				<param name="root">jsonResponse</param>
+			</result>
+		</action>
+		
+		<action name="ProjectAction!*" class="com.aliyun.mpp.action.ProjectAction"
+			method="{1}">
+			<result name="json" type="json">
+				<param name="root">jsonResponse</param>
+			</result>
+		</action>
+	</package>
+</struts>

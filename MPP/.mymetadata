@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ProjectK"
+  id="myeclipse.1306722700002"
+  context-root="/MPP"
+  j2ee-spec="5.0"
+  archive="ProjectK.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
